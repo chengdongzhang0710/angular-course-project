@@ -7,8 +7,9 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @ViewChild('nameInput', {static: false}) ingredientName: ElementRef;
-  @ViewChild('amountInput', {static: false}) ingredientAmount: ElementRef;
+  // static - True to resolve query results before change detection runs, false to resolve after change detection. Defaults to false.
+  @ViewChild('nameInput') ingredientName: ElementRef;
+  @ViewChild('amountInput') ingredientAmount: ElementRef;
   @Output() ingredientAdded = new EventEmitter<Ingredient>()
 
   constructor() { }
