@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -10,15 +11,14 @@ export class ShoppingEditComponent implements OnInit {
   // static - True to resolve query results before change detection runs, false to resolve after change detection. Defaults to false.
   @ViewChild('nameInput') ingredientName: ElementRef;
   @ViewChild('amountInput') ingredientAmount: ElementRef;
-  @Output() ingredientAdded = new EventEmitter<Ingredient>()
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
   }
 
   onAddIngredient() {
-    this.ingredientAdded.emit({name: this.ingredientName.nativeElement.value, amount: this.ingredientAmount.nativeElement.value})
+    this.shoppingListService.addIngredient({name: this.ingredientName.nativeElement.value, amount: this.ingredientAmount.nativeElement.value})
   }
 
 }
