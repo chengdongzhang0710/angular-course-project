@@ -1,7 +1,13 @@
-import { Directive, HostListener, Renderer2, ElementRef, HostBinding } from '@angular/core';
+import {
+  Directive,
+  HostListener,
+  Renderer2,
+  ElementRef,
+  HostBinding,
+} from '@angular/core';
 
 @Directive({
-  selector: '[appDropdown]'
+  selector: '[appDropdown]',
 })
 export class DropdownDirective {
   // dropdownOpened = false;
@@ -20,9 +26,10 @@ export class DropdownDirective {
 
   @HostBinding('class.open') dropOpened = false;
   @HostListener('document:click', ['$event']) openDropdown(event: Event) {
-    this.dropOpened = this.elRef.nativeElement.contains(event.target) ? !this.dropOpened : false;
+    this.dropOpened = this.elRef.nativeElement.contains(event.target)
+      ? !this.dropOpened
+      : false;
   }
 
-  constructor(private elRef: ElementRef) { }
-
+  constructor(private elRef: ElementRef) {}
 }

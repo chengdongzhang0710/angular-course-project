@@ -7,19 +7,16 @@ import { RecipeService } from './recipe.service';
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService]
+  providers: [RecipeService],
 })
 export class RecipesComponent implements OnInit {
   recipeDetailed: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
-    this.recipeService.recipeSelected.subscribe(
-      (recipeItem: Recipe) => {
-        this.recipeDetailed = recipeItem;
-      }
-    )
+    this.recipeService.recipeSelected.subscribe((recipeItem: Recipe) => {
+      this.recipeDetailed = recipeItem;
+    });
   }
-
 }

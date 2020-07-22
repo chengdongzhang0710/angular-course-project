@@ -7,27 +7,30 @@ import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
   recipeDisplayed: Recipe;
 
-  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.recipeDisplayed = this.recipeService.getRecipe(+params['id']);
-      }
-    )
+    this.route.params.subscribe((params: Params) => {
+      this.recipeDisplayed = this.recipeService.getRecipe(+params['id']);
+    });
   }
 
   onAddIngredientsToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.recipeDisplayed.ingredients);
+    this.recipeService.addIngredientsToShoppingList(
+      this.recipeDisplayed.ingredients
+    );
   }
 
   onEditRecipe() {
-    this.router.navigate(['edit'], {relativeTo: this.route});
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
-
 }
