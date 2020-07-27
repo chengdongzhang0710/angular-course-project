@@ -5,10 +5,12 @@ import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable({ providedIn: 'root' })
 export class ShoppingListService {
-  private ingredients: Array<Ingredient> = [
-    new Ingredient('apple', 5),
-    new Ingredient('tomato', 10),
-  ];
+  // private ingredients: Array<Ingredient> = [
+  //   new Ingredient('apple', 5),
+  //   new Ingredient('tomato', 10),
+  // ];
+
+  private ingredients: Array<Ingredient> = [];
 
   ingredientChanged = new Subject<Array<Ingredient>>();
   startedEditing = new Subject<number>();
