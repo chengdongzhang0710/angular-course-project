@@ -11,7 +11,6 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
   styleUrls: ['./shopping-edit.component.css'],
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  // static - True to resolve query results before change detection runs, false to resolve after change detection. Defaults to false.
   @ViewChild('f', { static: false }) ingredientForm: NgForm;
   subscription: Subscription;
   editMode = false;
