@@ -12,4 +12,4 @@ The application can implement:
 * Single recipe creation, update and deletion;
 * Needed ingredients management in shopping list.
 
-This Project works with NgRx to manage application state.
+This project works with NgRx to manage application state.
